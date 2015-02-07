@@ -1,0 +1,5 @@
+# Exclude Eclipse stuff
+target/
+.classpath
+.settings/
+.project
