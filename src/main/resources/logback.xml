@@ -5,6 +5,9 @@
 			</pattern>
 		</encoder>
 	</appender>
+	
+	<!-- Restrict 3rd Party logging -->
+	<logger name="org.jboss.weld" level="error" />
 
 	<root level="info">
 		<appender-ref ref="STDOUT" />
