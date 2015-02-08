@@ -24,12 +24,13 @@ public class DublinPubsAdminCdi {
 				.getResource(ResourceAccessor.FXML_LANDING_PAGE));
 		Parent root = (Parent) fxmlLoader.load();
 
-		Scene scene = new Scene(root, 400, 400);
+		Scene scene = new Scene(root, 800, 600);
 		scene.getStylesheets().add(
 				resourceAccessor.getResource(ResourceAccessor.CSS_APP)
 						.toExternalForm());
 
 		primaryStage.setScene(scene);
+		primaryStage.setMaximized(true);
 		primaryStage.show();
 	}
 }
