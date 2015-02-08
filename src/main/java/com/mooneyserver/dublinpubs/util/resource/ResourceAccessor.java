@@ -1,4 +1,4 @@
-package com.mooneyserver.dublinpubs.resource;
+package com.mooneyserver.dublinpubs.util.resource;
 
 import java.net.URL;
 

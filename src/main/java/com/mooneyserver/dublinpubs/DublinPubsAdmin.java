@@ -7,7 +7,7 @@ import org.jboss.weld.environment.se.Weld;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.mooneyserver.dublinpubs.di.DublinPubsAdminCdi;
+import com.mooneyserver.dublinpubs.util.di.DublinPubsAdminCdi;
 
 public class DublinPubsAdmin extends Application {
 

@@ -1,4 +1,4 @@
-package com.mooneyserver.dublinpubs.di;
+package com.mooneyserver.dublinpubs.util.di;
 
 import java.nio.charset.StandardCharsets;
 

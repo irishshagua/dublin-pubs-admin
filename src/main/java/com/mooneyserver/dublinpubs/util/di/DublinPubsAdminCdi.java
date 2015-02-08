@@ -1,4 +1,4 @@
-package com.mooneyserver.dublinpubs.di;
+package com.mooneyserver.dublinpubs.util.di;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import javax.inject.Inject;
 
-import com.mooneyserver.dublinpubs.resource.ResourceAccessor;
+import com.mooneyserver.dublinpubs.util.resource.ResourceAccessor;
 
 public class DublinPubsAdminCdi {
 
