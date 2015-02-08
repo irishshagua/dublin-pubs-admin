@@ -3,7 +3,6 @@ package com.mooneyserver.dublinpubs.di;
 import java.nio.charset.StandardCharsets;
 
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.JavaFXBuilderFactory;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
