@@ -1,5 +1,7 @@
 package com.mooneyserver.dublinpubs.util.di;
 
+import static com.mooneyserver.dublinpubs.util.resource.ResourceAccessor.APP_FRAME_TITLE;
+
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
@@ -18,10 +20,11 @@ public class DublinPubsAdminCdi {
 	@Inject
 	private ResourceAccessor resourceAccessor;
 
-	public void start(Stage primaryStage)
-			throws IOException {
+	public void start(Stage primaryStage) throws IOException {
 		fxmlLoader.setLocation(resourceAccessor
 				.getResource(ResourceAccessor.FXML_LANDING_PAGE));
+		fxmlLoader.setResources(resourceAccessor.getResourceBundle());
+
 		Parent root = (Parent) fxmlLoader.load();
 
 		Scene scene = new Scene(root, 800, 600);
@@ -31,6 +34,9 @@ public class DublinPubsAdminCdi {
 
 		primaryStage.setScene(scene);
 		primaryStage.setMaximized(true);
+		primaryStage.setTitle(resourceAccessor.getResourceBundle().getString(
+				APP_FRAME_TITLE));
+		
 		primaryStage.show();
 	}
 }

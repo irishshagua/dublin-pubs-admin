@@ -41,7 +41,8 @@
 									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="8.0"
 									AnchorPane.topAnchor="0.0">
 									<children>
-										<Label fx:id="pubCountLabel" contentDisplay="CENTER"/>
+										<Label fx:id="pubCountLabel" contentDisplay="CENTER"
+											text="%app.tabs.pub_list.pub_count" />
 										<Button mnemonicParsing="false" text="Reload" />
 										<Button mnemonicParsing="false" text="Update" />
 									</children>

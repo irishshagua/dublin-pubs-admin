@@ -1,6 +1,9 @@
 package com.mooneyserver.dublinpubs.controller;
 
+import static com.mooneyserver.dublinpubs.util.resource.ResourceAccessor.APP_TABS_PUBLIST_PUBCOUNT;
+
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -21,6 +24,8 @@ public class AdminController {
 
 	@FXML
 	private Label pubCountLabel;
+	@FXML
+	private ResourceBundle resources;
 
 	@Inject
 	private PubService pubService;
@@ -33,9 +38,12 @@ public class AdminController {
 	}
 
 	void updateUiWithPubDetails(List<Pub> visitedPubs) {
+		LOGGER.debug("Pub list received [{}]. Updating UI now", visitedPubs);
+		
 		Platform.runLater(() -> {
-			LOGGER.debug("Pub list received [{}]. Updating UI now", visitedPubs);
-			pubCountLabel.setText(String.format("#Pubs: %d", visitedPubs.size()));
+			pubCountLabel.setText(String.format("%s: %d",
+					resources.getString(APP_TABS_PUBLIST_PUBCOUNT),
+					visitedPubs.size()));
 		});
 	}
 }
