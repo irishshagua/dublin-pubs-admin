@@ -29,9 +29,9 @@
 			AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="0.0">
 			<children>
 				<Label fx:id="pubCountLabel" contentDisplay="CENTER"
-					text="%app.tabs.pub_list.pub_count" />
-				<Button mnemonicParsing="false" text="Reload" />
-				<Button mnemonicParsing="false" text="Update" />
+					text="%app.tabs.pub_list.pub_count_lbl" />
+				<Button mnemonicParsing="false" text="%app.tabs.pub_list.reload_btn" />
+				<Button mnemonicParsing="false" text="%app.tabs.pub_list.update_btn" />
 			</children>
 		</HBox>
 	</children>

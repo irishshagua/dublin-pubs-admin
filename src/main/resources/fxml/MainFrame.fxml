@@ -10,12 +10,12 @@
 			AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
 			AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<tabs>
-				<Tab closable="false" text="Pubs">
+				<Tab closable="false" text="%app.tabs.pub_list">
 					<content>
 						<fx:include source="PubList.fxml"/>						
 					</content>
 				</Tab>
-				<Tab closable="false" text="Settings" />
+				<Tab closable="false" text="%app.tabs.settings" />
 			</tabs>
 		</TabPane>
 	</children>
