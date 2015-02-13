@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 public class ResourceAccessor {
 
 	// FXML Files
-	public static final String FXML_LANDING_PAGE = "fxml/Admin.fxml";
+	public static final String FXML_LANDING_PAGE = "fxml/MainFrame.fxml";
 	
 	// CSS Files
 	public static final String CSS_APP = "css/application.css";

@@ -17,10 +17,10 @@ import org.slf4j.LoggerFactory;
 import com.mooneyserver.dublinpubs.model.Pub;
 import com.mooneyserver.dublinpubs.service.PubService;
 
-public class AdminController {
+public class PubListController {
 
 	private static final Logger LOGGER = LoggerFactory
-			.getLogger(AdminController.class);
+			.getLogger(PubListController.class);
 
 	@FXML
 	private Label pubCountLabel;
@@ -39,7 +39,7 @@ public class AdminController {
 
 	void updateUiWithPubDetails(List<Pub> visitedPubs) {
 		LOGGER.debug("Pub list received [{}]. Updating UI now", visitedPubs);
-		
+
 		Platform.runLater(() -> {
 			pubCountLabel.setText(String.format("%s: %d",
 					resources.getString(APP_TABS_PUBLIST_PUBCOUNT),
