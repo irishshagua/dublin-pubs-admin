@@ -58,14 +58,18 @@ public class PubListController {
 		reviewColumn.setCellValueFactory(cellData -> cellData.getValue()
 				.getReview());
 
-		LOGGER.debug("Requesting visited pubs from REST service");
-		pubService.retrieveVisitedPubsAsync().thenAcceptAsync(
-				this::updateUiWithPubDetails);
+		refreshPubList();
 	}
 
 	public void addPubToTable(Pub pub) {
 		ObservableList<PubRow> tableData = pubsTableView.getItems();
 		tableData.add(PubRow.fromPub(pub));
+	}
+
+	public void refreshPubList() {
+		LOGGER.debug("Requesting visited pubs from REST service");
+		pubService.retrieveVisitedPubsAsync().thenAcceptAsync(
+				this::updateUiWithPubDetails);
 	}
 
 	void updateUiWithPubDetails(List<Pub> visitedPubs) {
