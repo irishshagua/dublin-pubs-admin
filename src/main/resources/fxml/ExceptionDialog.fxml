@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+
+<GridPane 
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="com.mooneyserver.dublinpubs.controller.ExceptionDialogController"
+	minHeight="400" minWidth="400" prefWidth="900">
+   <children>
+   	<Label fx:id="exceptionLabel"/>
+   	<TextArea fx:id="exceptionDisplayTextArea" 
+   		editable="false" wrapText="true" 
+   		GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+   </children>
+</GridPane>

@@ -21,7 +21,7 @@ import com.mooneyserver.dublinpubs.model.Pub;
 import com.mooneyserver.dublinpubs.model.ui.PubRow;
 import com.mooneyserver.dublinpubs.service.PubService;
 
-public class PubListController {
+public class PubListController extends BaseController {
 
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(PubListController.class);
@@ -48,7 +48,6 @@ public class PubListController {
 	public void initialize() {
 		LOGGER.debug("Initializing Admin Page controller.");
 
-		LOGGER.debug("Binding Table columns to properties");
 		nameColumn.setCellValueFactory(cellData -> cellData.getValue()
 				.getName());
 		latitudeColumn.setCellValueFactory(cellData -> cellData.getValue()
@@ -68,8 +67,10 @@ public class PubListController {
 
 	public void refreshPubList() {
 		LOGGER.debug("Requesting visited pubs from REST service");
-		pubService.retrieveVisitedPubsAsync().thenAcceptAsync(
-				this::updateUiWithPubDetails);
+		pubService
+			.retrieveVisitedPubsAsync()
+			.thenAcceptAsync(this::updateUiWithPubDetails)
+			.exceptionally(this::displayException);
 	}
 
 	void updateUiWithPubDetails(List<Pub> visitedPubs) {
