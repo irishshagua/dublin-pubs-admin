@@ -16,6 +16,7 @@ public class ResourceAccessor {
 	// Localization Keys
 	public static final String APP_FRAME_TITLE = "app.frame.title";
 	public static final String APP_TABS_PUBLIST_PUBCOUNT = "app.tabs.pub_list.pub_count_lbl";
+	public static final String APP_DIALOG_ERROR = "dialog.exception.title";
 
 	// Localized Strings
 	private static final String STRINGS = "i18n/AdminStrings";

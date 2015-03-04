@@ -28,7 +28,8 @@ public abstract class BaseController implements DisplaysErrors {
 	public Void displayException(Throwable t) {
 		Platform.runLater(() -> {
 			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Serious Error");
+			alert.setTitle(resourceAccessor.getResourceBundle().getString(
+					ResourceAccessor.APP_DIALOG_ERROR));
 			alert.setContentText(t.getLocalizedMessage());
 			alert.getDialogPane().setContent(generateErrorDialogNode(t));
 			alert.setResizable(true);
