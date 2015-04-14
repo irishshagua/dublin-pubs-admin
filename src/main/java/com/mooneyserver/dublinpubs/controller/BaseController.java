@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import com.mooneyserver.dublinpubs.util.resource.ResourceAccessor;
 
-public abstract class BaseController implements DisplaysErrors {
+abstract class BaseController implements DisplaysErrors {
 
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(BaseController.class);
@@ -25,7 +25,7 @@ public abstract class BaseController implements DisplaysErrors {
 	@Inject
 	private ResourceAccessor resourceAccessor;
 
-	public Void displayException(Throwable t) {
+	public <T> T displayException(Throwable t) {
 		Platform.runLater(() -> {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle(resourceAccessor.getResourceBundle().getString(
