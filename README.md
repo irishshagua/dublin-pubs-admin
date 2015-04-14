@@ -11,3 +11,8 @@ Building
 You can build a native installer using maven:
     
         mvn clean jfx:native
+        
+
+Requirements
+-----------
+Code must be compiled with JDK 8.40 +
