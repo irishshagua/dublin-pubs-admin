@@ -8,6 +8,7 @@ public class ResourceAccessor {
 
 	// FXML Files
 	public static final String FXML_LANDING_PAGE = "fxml/MainFrame.fxml";
+	public static final String FXML_INSERT_PUB_DIALOG = "fxml/InsertPub.fxml";
 	public static final String FXML_ERROR_DIALOG = "fxml/ExceptionDialog.fxml";
 
 	// CSS Files

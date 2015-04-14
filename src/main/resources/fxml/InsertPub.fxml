@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane minHeight="400" minWidth="400" prefWidth="900"
+	alignment="CENTER" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mooneyserver.dublinpubs.controller.InsertPubController">
+
+	<Text text="%dialog.insert_pub.heading_lbl" GridPane.columnIndex="0"
+		GridPane.rowIndex="0" GridPane.columnSpan="2" />
+
+	<Label text="%dialog.insert_pub.pub_name_lbl"
+		GridPane.columnIndex="0" GridPane.rowIndex="1" />
+
+	<TextField fx:id="pubName" GridPane.columnIndex="1"
+		GridPane.rowIndex="1" />
+
+	<Label text="%dialog.insert_pub.latitude_lbl"
+		GridPane.columnIndex="0" GridPane.rowIndex="2" />
+
+	<Spinner fx:id="latitude" editable="true" GridPane.columnIndex="1"
+		GridPane.rowIndex="2">
+		<valueFactory>
+			<SpinnerValueFactory.DoubleSpinnerValueFactory
+				min="0" max="90" initialValue="0.0000"
+				amountToStepBy="0.01" />
+		</valueFactory>
+	</Spinner>
+
+	<Label text="%dialog.insert_pub.longitude_lbl"
+		GridPane.columnIndex="0" GridPane.rowIndex="3" />
+
+	<Spinner fx:id="longitude" editable="true" GridPane.columnIndex="1"
+		GridPane.rowIndex="3">
+		<valueFactory>
+			<SpinnerValueFactory.DoubleSpinnerValueFactory
+				min="-180" max="180" initialValue="0.0000"
+				amountToStepBy="0.01" />
+		</valueFactory>
+	</Spinner>
+
+	<Label text="%dialog.insert_pub.review_lbl" GridPane.columnIndex="0"
+		GridPane.rowIndex="4" />
+
+	<TextArea fx:id="review" GridPane.columnIndex="1"
+		GridPane.rowIndex="5" GridPane.columnSpan="2" />
+
+	<HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="1"
+		GridPane.rowIndex="6">
+		<Button text="%dialog.insert_pub.insert_btn" onAction="#submitNewPub" />
+	</HBox>
+</GridPane>

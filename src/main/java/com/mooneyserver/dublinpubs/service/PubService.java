@@ -1,5 +1,6 @@
 package com.mooneyserver.dublinpubs.service;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -8,6 +9,7 @@ import javax.inject.Inject;
 import javax.ws.rs.ProcessingException;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.client.Client;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.ResponseProcessingException;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
@@ -38,10 +40,10 @@ public class PubService {
 
 		try {
 			visitedPubs = restClient
-				.target(REST_BASE_URL)
+                .target(REST_BASE_URL)
 				.path(REST_PUBS_PATH)
-				.request(MediaType.APPLICATION_JSON)
-				.get(new GenericType<List<Pub>>() {});
+                .request(MediaType.APPLICATION_JSON)
+                .get(new GenericType<List<Pub>>() {});
 		} catch (ResponseProcessingException e) {
 			LOGGER.error(
 					"Error retrieving pubs. Unable to deserialize response {}",
@@ -57,5 +59,35 @@ public class PubService {
 				visitedPubs);
 
 		return visitedPubs;
+	}
+
+	public CompletableFuture<URI> submitNewPubAsync(Pub newPub) {
+		return CompletableFuture.supplyAsync(() -> {
+			return submitNewPub(newPub);
+		});
+	}
+
+	public URI submitNewPub(Pub newPub) {
+		URI uri;
+		try {
+			Entity<Pub> submittedPubEntity = Entity.entity(newPub,
+					MediaType.APPLICATION_JSON);
+
+			uri = restClient.target(REST_BASE_URL).path(REST_PUBS_PATH)
+					.request().post(submittedPubEntity, URI.class);
+
+		} catch (ResponseProcessingException e) {
+			LOGGER.error(
+					"Error submitting new pub {}. Unable to deserialize response {}",
+					e.getResponse().getEntity(), newPub, e);
+			throw e;
+		} catch (ProcessingException | WebApplicationException e) {
+			LOGGER.error(
+					"Error submitting new pub {}. Rest Call to Pubs endpoint failed",
+					newPub, e);
+			throw e;
+		}
+
+		return uri;
 	}
 }

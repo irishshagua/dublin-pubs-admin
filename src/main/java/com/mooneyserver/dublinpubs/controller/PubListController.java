@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import com.mooneyserver.dublinpubs.model.Pub;
 import com.mooneyserver.dublinpubs.model.ui.PubRow;
 import com.mooneyserver.dublinpubs.service.PubService;
+import com.mooneyserver.dublinpubs.window.InsertNewPubWindow;
 
 public class PubListController extends BaseController {
 
@@ -43,6 +44,8 @@ public class PubListController extends BaseController {
 
 	@Inject
 	private PubService pubService;
+	@Inject
+	private InsertNewPubWindow insertNewPubWindow;
 
 	@FXML
 	public void initialize() {
@@ -72,14 +75,10 @@ public class PubListController extends BaseController {
 			.thenAcceptAsync(this::updateUiWithPubDetails)
 			.exceptionally(this::displayException);
 	}
-
-	void updateUiWithPubDetails(List<Pub> visitedPubs) {
-		LOGGER.debug("Pub list received [{}]. Updating UI now", visitedPubs);
-
-		Platform.runLater(() -> {
-			updateCountLabelWithPubDetails(visitedPubs);
-			updateTableViewWithPubDetails(visitedPubs);
-		});
+	
+	public void openInsertPubDialog() {
+		LOGGER.debug("Insert new pub action called, opening insert pub dialog");
+		insertNewPubWindow.displayWindow();
 	}
 
 	public void updateCountLabelWithPubDetails(List<Pub> visitedPubs) {
@@ -90,5 +89,14 @@ public class PubListController extends BaseController {
 
 	public void updateTableViewWithPubDetails(List<Pub> visitedPubs) {
 		visitedPubs.forEach(this::addPubToTable);
+	}
+	
+	void updateUiWithPubDetails(List<Pub> visitedPubs) {
+		LOGGER.debug("Pub list received [{}]. Updating UI now", visitedPubs);
+
+		Platform.runLater(() -> {
+			updateCountLabelWithPubDetails(visitedPubs);
+			updateTableViewWithPubDetails(visitedPubs);
+		});
 	}
 }

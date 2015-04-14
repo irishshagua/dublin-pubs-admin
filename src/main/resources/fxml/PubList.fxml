@@ -29,8 +29,9 @@
 			<children>
 				<Label fx:id="pubCountLabel" contentDisplay="CENTER"
 					text="%app.tabs.pub_list.pub_count_lbl" />
-				<Button mnemonicParsing="false" text="%app.tabs.pub_list.reload_btn" onAction="#refreshPubList" />
-				<Button mnemonicParsing="false" text="%app.tabs.pub_list.update_btn" />
+				<Button text="%app.tabs.pub_list.insert_btn" onAction="#openInsertPubDialog" />
+				<Button text="%app.tabs.pub_list.reload_btn" onAction="#refreshPubList" />
+				<Button text="%app.tabs.pub_list.update_btn" />
 			</children>
 		</HBox>
 	</children>
