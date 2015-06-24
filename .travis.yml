@@ -5,6 +5,10 @@ sudo: required
 jdk:
   - oraclejdk8
 
+env:
+  global:
+    - secure: "jxtXMFNL74lYKEw3kan5PTbgPw+fScffsa1LZn4t4QbbvyFkO5FTM81909Q+CHGbSEOwkKJmJJGeMl2fFDznanP5W8xASoEtvy592BB5h1LlwEVbfSHiMC/cq4bQn+goBuatfWd0VyTVJWPGxpjqZqEkhN1Y9bSfcPYCPLQMtk0="
+
 install: true
 
 script:
